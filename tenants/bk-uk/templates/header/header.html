@@ -1,0 +1,29 @@
+<div class="navbar-collapse">
+    <ul class="navbar-nav mr-auto">
+        <li class="nav-item"
+            data-ui-sref-active="active">
+            <a class="nav-link"
+                data-ui-sref="login"
+                data-ng-if="!headerVm.user">
+                Login
+            </a>
+        </li>
+        <li class="nav-item"
+            data-ui-sref-active="active">
+            <a class="nav-link"
+                data-ui-sref="users"
+                data-ng-if="headerVm.user">
+                Users
+            </a>
+        </li>
+        <li class="nav-item"
+            data-ui-sref-active="active">
+            <a class="nav-link"
+                href=""
+                data-ng-if="headerVm.user"
+                data-ng-click="headerVm.logout()">
+                Logout ({{ headerVm.user.email }})
+            </a>
+        </li>
+    </ul>
+</div>
