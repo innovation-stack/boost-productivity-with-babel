@@ -1,5 +1,5 @@
 import {
-  USER_SERVICE
+  USER_SERVICE, ALBUM_SERVICE, PHOTO_SERVICE
 } from "../entities";
 import {
   $STATE_SERVICE,
@@ -32,6 +32,8 @@ class UserCtrl {
     injections.set(this, {
       $StateService: $StateService,
       UserService: $InjectorService.get(USER_SERVICE),
+      AlbumService: $InjectorService.get(ALBUM_SERVICE),
+      PhotoService: $InjectorService.get(PHOTO_SERVICE),
       AccountService: $InjectorService.get(ACCOUNT_SERVICE)
     });
   }
@@ -60,7 +62,6 @@ class UserCtrl {
       .then((response) => {
         this.user = response.data;
         this.error = undefined;
-        return 10;
       }).then(() => {
         return this.fetchUserAlbums(userId);
       }).catch((response) => {
@@ -72,9 +73,9 @@ class UserCtrl {
 
   fetchUserAlbums(userId) {
     const {
-      UserService
+      AlbumService
     } = injections.get(this);
-    return UserService.getUserAlbums(userId)
+    return AlbumService.getUserAlbums(userId)
       .then((response) => {
         this.albums = response.data;
       });
@@ -82,13 +83,13 @@ class UserCtrl {
 
   fetchAlbumPhotos(event, album) {
     const {
-      UserService
+      PhotoService
     } = injections.get(this);
     event.preventDefault();
-    if (album.photos) {
-      this.photos = photos;
+    if (album && album.photos) {
+      this.photos = album.photos;
     } else {
-      UserService.getUserAlbumPhotos(album.id)
+      PhotoService.getUserAlbumPhotos(album.id)
         .then((response) => {
           album.photos = response.data;
           this.photos = album.photos;
