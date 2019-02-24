@@ -58,18 +58,6 @@ class UserService {
         }
         return defer.promise;
     }
-
-    getUserAlbums(userId) {
-        const {$HttpService, UserApiService} = injections.get(this);
-        const albumsEndpoint = `${UserApiService.baseUrl}/users/${userId}/albums`;
-        return $HttpService.get(albumsEndpoint);
-    }
-
-    getUserAlbumPhotos(albumId) {
-        const {$HttpService, UserApiService} = injections.get(this);
-        const photosEndpoint = `${UserApiService.baseUrl}/photos?albumId=${albumId}`;
-        return $HttpService.get(photosEndpoint);
-    }
 }
 
 export default UserService;
