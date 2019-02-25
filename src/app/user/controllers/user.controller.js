@@ -1,14 +1,16 @@
 import {
-  USER_SERVICE, ALBUM_SERVICE, PHOTO_SERVICE
-} from "../entities";
+  USER_SERVICE,
+  ALBUM_SERVICE,
+  PHOTO_SERVICE
+} from '../entities';
 import {
   $STATE_SERVICE,
   $INJECTOR_SERVICE
-} from "../../common/entities";
+} from '../../common/entities';
 import {
   ACCOUNT_SERVICE,
   ACCOUNT_STATES
-} from "../../account/entities";
+} from '../../account/entities';
 
 const injections = new WeakMap();
 

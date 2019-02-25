@@ -1,7 +1,7 @@
 class AppCtrl {
-    $onInit() {
+  $onInit() {
 
-    }
+  }
 }
 
 export default AppCtrl;

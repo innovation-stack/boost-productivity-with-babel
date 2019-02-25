@@ -11,14 +11,14 @@
         "ecmaVersion": 2018,
         "sourceType": "module"
     },
+    "plugins": [
+        "eslint-plugin-custom-eslint-plugins"
+    ],
     "rules": {
+        "custom-eslint-plugins/array-foreach": 1,
         "indent": [
             "error",
-            4
-        ],
-        "linebreak-style": [
-            "error",
-            "unix"
+            2
         ],
         "quotes": [
             "error",

@@ -1,8 +1,10 @@
 import HeaderCtrl from '../controllers/header.controller';
-import { headerTemplate } from '../../../tenant';
+import {
+  headerTemplate
+} from '../../../tenant';
 
 export const HeaderComponent = {
-    template: headerTemplate,
-    controller: HeaderCtrl,
-    controllerAs: 'headerVm'
+  template: headerTemplate,
+  controller: HeaderCtrl,
+  controllerAs: 'headerVm'
 };
