@@ -1,14 +1,13 @@
+export default function () {
+  let baseUrl;
 
-export default function() {
-    let baseUrl;
+  this.setBaseUrl = function (url) {
+    baseUrl = url;
+  };
 
-    this.setBaseUrl = function (url) {
-        baseUrl = url;
+  this.$get = function () {
+    return {
+      baseUrl
     };
-
-    this.$get = function () {
-        return {
-            baseUrl
-        };
-    };
+  };
 }

@@ -8,9 +8,9 @@ import loginTemplate from '../tenants/bk-uk/templates/login/login.html';
 import userTemplate from '../tenants/bk-uk/templates/user/user.html';
 import usersTemplate from '../tenants/bk-uk/templates/user/users.html';
 export {
-	headerTemplate,
-	homeTemplate,
-	loginTemplate,
-	userTemplate,
-	usersTemplate
+  headerTemplate,
+  homeTemplate,
+  loginTemplate,
+  userTemplate,
+  usersTemplate
 };

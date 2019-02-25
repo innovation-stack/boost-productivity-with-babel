@@ -7,6 +7,6 @@ export const USER_API_SERVICE = 'UserApiService';
 export const USER_API_SERVICE_PROVIDER = `${USER_API_SERVICE}Provider`;
 
 export const USER_STATES = {
-    'USERS': 'users',
-    'USER': 'user'
+  'USERS': 'users',
+  'USER': 'user'
 };

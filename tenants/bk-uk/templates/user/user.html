@@ -47,7 +47,16 @@
     <div class="col-sm">
       <div class="photos">
           <h3>Photos</h3>
-          <ul class="list-group photos-data">
+          <div class="alert alert-primary text-center"
+            data-ng-if="userVm.isLoadingPhotos && userVm.photos.length === 0">
+            Loading Photos...
+          </div>
+          <div class="alert alert-danger text-center"
+            data-ng-if="!userVm.isLoadingPhotos && userVm.photos.length === 0">
+            No Photos
+          </div>
+          <ul class="list-group photos-data"
+            data-ng-if="!userVm.isLoadingPhotos && userVm.photos.length > 0">
             <li data-ng-repeat="album in userVm.photos track by $index"
               class="list-group-item">
               <div class="row">

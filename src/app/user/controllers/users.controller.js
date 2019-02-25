@@ -1,10 +1,14 @@
 import {
-  $INJECTOR_SERVICE, $STATE_SERVICE
-} from "../../common/entities";
+  $INJECTOR_SERVICE,
+  $STATE_SERVICE
+} from '../../common/entities';
 import {
   USER_SERVICE
-} from "../entities";
-import { ACCOUNT_SERVICE, ACCOUNT_STATES } from "../../account/entities";
+} from '../entities';
+import {
+  ACCOUNT_SERVICE,
+  ACCOUNT_STATES
+} from '../../account/entities';
 
 class UsersCtrl {
   isLoading = false;
