@@ -1,0 +1,6 @@
+{
+  "name": "babel-plugin-deadcode",
+  "version": "1.0.0",
+  "description": "Babel plugin to remove code references of excluded files",
+  "main": "index.js"
+}
