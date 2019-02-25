@@ -16,6 +16,7 @@
     ],
     "rules": {
         "custom-eslint-plugins/array-foreach": 1,
+        "custom-eslint-plugins/empty-method": 1,
         "indent": [
             "error",
             2
