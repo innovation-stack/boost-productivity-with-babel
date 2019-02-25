@@ -27,7 +27,9 @@ class AccountService {
   login(user) {
     if (user.email === 'test@test.com' && user.password === 'test') {
       this.persistUser(user);
-      this.PubSubService.publish(PUB_SUB_EVENTS.ACCOUNT.LOGIN_CHANGE, user);
+      this.PubSubService.publish(PUB_SUB_EVENTS.ACCOUNT.LOGIN_CHANGE, {
+        user
+      });
     }
   }
 
@@ -36,7 +38,7 @@ class AccountService {
   }
 
   logout() {
-    this.PubSubService.publish(PUB_SUB_EVENTS.ACCOUNT.LOGIN_CHANGE, undefined);
+    this.PubSubService.publish(PUB_SUB_EVENTS.ACCOUNT.LOGIN_CHANGE, {});
   }
 }
 

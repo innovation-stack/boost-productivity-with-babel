@@ -39,8 +39,8 @@ class HeaderCtrl {
     const {
       PubSubService
     } = injections.get(this);
-    this.unsubscribeLoginChangeEvent = PubSubService.subscribe(PUB_SUB_EVENTS.ACCOUNT.LOGIN_CHANGE, (user) => {
-      this.user = user;
+    this.unsubscribeLoginChangeEvent = PubSubService.subscribe(PUB_SUB_EVENTS.ACCOUNT.LOGIN_CHANGE, (data) => {
+      this.user = data.user;
     });
   }
 
