@@ -14,6 +14,7 @@ const injections = new WeakMap();
 
 class UserCtrl {
   isLoading = false;
+  isLoadingPhotos = false;
   user = undefined;
   userId = undefined;
   albums = [];
@@ -89,10 +90,13 @@ class UserCtrl {
     if (album && album.photos) {
       this.photos = album.photos;
     } else {
+      this.isLoadingPhotos = true;
+      this.photos = [];
       PhotoService.getUserAlbumPhotos(album.id)
         .then((response) => {
           album.photos = response.data;
           this.photos = album.photos;
+          this.isLoadingPhotos = false;
         });
     }
   }
