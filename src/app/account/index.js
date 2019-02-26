@@ -8,8 +8,9 @@ import {
 import {
   LoginComponent
 } from './components/login.component';
+import { $STATE_PROVIDER_SERVICE } from '../common/entities';
 
-accountConfig.$inject = ['$stateProvider'];
+accountConfig.$inject = [$STATE_PROVIDER_SERVICE];
 
 function accountConfig($stateProvider) {
   const LOGIN_URL = `/${ACCOUNT_STATES.LOGIN}`;

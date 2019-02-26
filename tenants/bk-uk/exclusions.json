@@ -1,6 +1,6 @@
 {
    "controllers": [],
    "services": [
-       "PhotoService"
+       "photo.service"
    ]
 }

@@ -8,24 +8,7 @@ module.exports = {
     publicPath: '/'
   },
   module: {
-    rules: [{
-      test: /\.js$/,
-      loader: 'babel-loader',
-      include: [
-        path.join(__dirname, 'src')
-      ],
-      exclude: /node_modules/,
-      options: {
-        presets: [
-          '@babel/preset-env'
-        ],
-        plugins: [
-          '@babel/plugin-proposal-class-properties',
-          '@babel/plugin-syntax-dynamic-import',
-          'babel-plugin-deadcode'
-        ]
-      }
-    }]
+    rules: []
   },
   plugins: []
 };
