@@ -1,0 +1,16 @@
+.albums,
+.photos {
+    margin-top: 15px;
+}
+
+.albums-data,
+.photos-data {
+    height: 400px;
+    overflow: scroll;
+}
+
+.album-photo {
+    width: 100%;
+    border-radius: 50%;
+    border: 1px solid #fff;
+}

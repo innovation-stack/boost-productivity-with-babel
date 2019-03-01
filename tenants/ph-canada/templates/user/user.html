@@ -1,0 +1,78 @@
+<div class="alert alert-primary"
+  data-ng-if="userVm.isLoading">
+  Loading User...
+</div>
+<div class="alert alert-danger"
+  data-ng-if="!userVm.isLoading && userVm.user === undefined">
+  Unable to fetch user info
+</div>
+<div data-ng-if="!userVm.isLoading && userVm.user !== undefined">
+  <button class="btn btn-link"
+    data-ui-sref="users">
+    Back to users
+  </button>
+  <div class="card">
+    <div class="card-header">{{ ::userVm.user.username }}</div>
+    <div class="card-body">
+      <h5 class="card-title">
+        {{ ::userVm.user.name }}
+      </h5>
+      <p class="card-text">
+        <strong>Phone:</strong> {{ ::userVm.user.phone }}
+      </p>
+      <p class="card-text">
+        <strong>Email:</strong> {{ ::userVm.user.email }}
+      </p>
+      <p class="card-tedt">
+        <strong>Address:</strong> {{ ::userVm.user.address.suite }}, {{ ::userVm.user.address.street }} - {{ ::userVm.user.address.zipcode }}
+      </p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm">
+      <div class="albums">
+        <h3>Albums</h3>
+        <ul class="list-group albums-data">
+          <li data-ng-repeat="album in userVm.albums track by $index"
+            class="list-group-item">
+            <a href=""
+              data-ng-click="userVm.fetchAlbumPhotos($event, album)">
+              {{ ::album.title }}
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-sm">
+      <div class="photos">
+          <h3>Photos</h3>
+          <div class="alert alert-primary text-center"
+            data-ng-if="userVm.isLoadingPhotos && userVm.photos.length === 0">
+            Loading Photos...
+          </div>
+          <div class="alert alert-danger text-center"
+            data-ng-if="!userVm.isLoadingPhotos && userVm.photos.length === 0">
+            No Photos
+          </div>
+          <ul class="list-group photos-data"
+            data-ng-if="!userVm.isLoadingPhotos && userVm.photos.length > 0">
+            <li data-ng-repeat="album in userVm.photos track by $index"
+              class="list-group-item">
+              <div class="row">
+                <div class="col-sm-5">
+                  <img class="album-photo"
+                    data-ng-src="{{ album.url }}"
+                    alt="{{ album.title }}">
+                </div>
+                <div class="col-sm-7">
+                  <span>{{ album.title }}</span>
+                </div>
+              </div>
+            </li>
+          </ul>
+      </div>
+    </div>
+  </div>
+
+</div>
