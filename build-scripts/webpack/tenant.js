@@ -52,7 +52,7 @@ function buildImportStatementsForTemplates(fileNamesConfig, tenantName) {
 function buildExportStatementsForTemplates(fileNamesConfig) {
   const exportStatementExpression = fileNamesConfig.map((fileNameConfig) => {
     const exportToken = fileNameConfig.modifiedFileName || fileNameConfig.actualFileName;
-    return '\t' + path.basename(exportToken + 'Template');
+    return '  ' + path.basename(exportToken + 'Template');
   }).join(',\n');
   return `export {\n${exportStatementExpression}\n};`;
 }
