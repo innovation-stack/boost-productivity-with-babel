@@ -1,0 +1,32 @@
+<h2>Users</h2>
+
+<div class="alert alert-primary"
+    data-ng-if="usersVm.isLoading && usersVm.users.length === 0">
+    Loading Users...
+</div>
+<div class="alert alert-danger"
+    data-ng-if="!usersVm.isLoading && usersVm.users.length === 0">
+    No Users Available
+</div>
+<table class="table table-dark table-striped"
+    data-ng-if="!usersVm.isLoading && usersVm.users.length > 0">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr data-ng-repeat="user in ::usersVm.users track by $index">
+            <td>
+                <a class="username"
+                    data-ng-href="users/{{ ::user.id }}">
+                    {{ ::user.nameWithUsername }}
+                </a>
+            </td>
+            <td>{{ ::user.email }}</td>
+            <td>{{ ::user.phone }}</td>
+        </tr>
+    </tbody>
+</table>
