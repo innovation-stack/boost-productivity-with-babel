@@ -3,3 +3,9 @@ $content-margin-top: 120px !default;
 .content {
     margin-top: $content-margin-top;
 }
+
+.navbar {
+    &.bg-dark {
+        background-color: darkcyan !important;
+    }
+}
