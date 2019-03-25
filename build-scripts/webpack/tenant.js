@@ -7,9 +7,15 @@ const util = require('../util');
 const CONSOLE_COLORS = util.getConsoleColorFormats();
 
 function getFileNameConfig(filePath, tenantPath) {
-  let fileName = filePath.replace(tenantPath, '');
+  let fileName;
+  if (process.platform === 'win32') {
+    fileName = filePath.replace(/\//g, '\\').replace(tenantPath, '').replace(/\\/g, '/');
+  } else {
+    fileName = filePath.replace(tenantPath, '');
+  }
   let fileNameTokens = fileName.split('.').slice(0, -1);
   let modifiedFileName;
+
 
   const actualFileName = fileNameTokens.reduce((acc, token, index) => {
     if (index === 0) {
