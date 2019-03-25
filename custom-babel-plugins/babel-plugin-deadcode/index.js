@@ -6,13 +6,13 @@ function getOuterChainedMethod(path) {
   let nextSiblingPath;
 
   do {
-    path = path.getNextSibling().parentPath;
+    path = path.parentPath;
     if (path.type !== 'MemberExpression' && path.type !== 'CallExpression') {
       break;
     }
-    nextSiblingPath = path.getNextSibling().parentPath;
+    nextSiblingPath = path.parentPath;
   } while (nextSiblingPath.type === 'MemberExpression' && nextSiblingPath.type === 'CallExpression');
-  return path;
+  return nextSiblingPath;
 }
 
 function getFileNameFromServiceName(serviceName = '') {
@@ -65,9 +65,7 @@ function removeInstantiation(path, servicesToExclude) {
 
 function removeMethodCalls(path) {
   const outerPath = getOuterChainedMethod(path.parentPath);
-  if (outerPath.type === 'MemberExpression') {
-    outerPath.parentPath.remove();
-  }
+  outerPath.parentPath.remove();
 }
 
 module.exports = function () {
